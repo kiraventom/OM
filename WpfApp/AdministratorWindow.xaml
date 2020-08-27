@@ -1,0 +1,28 @@
+﻿<Window x:Class="WpfApp.AdministratorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="AdministratorWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        
+        <TabControl Grid.Row="0" x:Name="MainTC">
+            <TabItem Header="Редактирование методов">
+                <Label Content="Здесь будет расположено меню редактирования методов"/>
+            </TabItem>
+            <TabItem Header="Редактирование примеров">
+                <Label Content="Здесь будет расположено меню редактирования примеров"/>
+            </TabItem>
+            <TabItem Header="Редактирование БД пользователей">
+                <Label Content="Здесь будет расположено меню редактирования БД пользователей"/>
+            </TabItem>
+        </TabControl>
+        <Button Grid.Row="1" x:Name="CloseBt" Content="Закрыть" Margin="3" Width="70" HorizontalAlignment="Right"/>
+    </Grid>
+</Window>

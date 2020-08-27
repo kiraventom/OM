@@ -1,0 +1,17 @@
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+
+namespace AuthorizationDB.Migrations
+{
+    public partial class Level2 : Migration
+    {
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+
+        }
+    }
+}
