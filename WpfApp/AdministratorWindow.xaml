@@ -20,7 +20,10 @@
                 <Label Content="Здесь будет расположено меню редактирования примеров"/>
             </TabItem>
             <TabItem Header="Редактирование БД пользователей">
-                <Label Content="Здесь будет расположено меню редактирования БД пользователей"/>
+                <DataGrid 
+                    x:Name="UsersDG"
+                    CanUserReorderColumns="False" 
+                    CanUserSortColumns="False"/>
             </TabItem>
         </TabControl>
         <Button Grid.Row="1" x:Name="CloseBt" Content="Закрыть" Margin="3" Width="70" HorizontalAlignment="Right"/>
