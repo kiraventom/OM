@@ -2,16 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace WpfApp
 {
@@ -24,6 +17,8 @@ namespace WpfApp
         {
             InitializeComponent();
             this._context = new AuthorizationContext();
+            _context.Users.Load();
+            DbAtLaunch = _context.Users.Local.ToList(); // Save state of DB at launch to compare at closing
             this.Loaded += this.AdministratorWindow_Loaded;
             this.UsersDG.AutoGeneratingColumn += this.UsersDG_AutoGeneratingColumn;
             this.Closing += this.AdministratorWindow_Closing;
@@ -35,6 +30,8 @@ namespace WpfApp
         }
 
         private readonly AuthorizationContext _context;
+        private readonly List<User> DbAtLaunch;
+
 
         private void AdministratorWindow_Loaded(object sender, RoutedEventArgs e)
         {
@@ -52,6 +49,12 @@ namespace WpfApp
 
         private void AdministratorWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            bool dbChanged = !DbAtLaunch.SequenceEqual(UsersDG.ItemsSource.OfType<User>());
+            if (!dbChanged)
+            {
+                return;
+            }
+
             var dr = MessageBox.Show("Сохранить изменения?", "Подтверджение", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
             switch (dr)
             {
@@ -64,6 +67,17 @@ namespace WpfApp
                     e.Cancel = true;
                     break;
             }
+        }
+
+        private void GenerateHashBt_Click(object sender, RoutedEventArgs e)
+        {
+            var hash =
+                string.IsNullOrWhiteSpace(this.PasswordToHashPB.Password)
+                ? string.Empty
+                : Authorization.Other.Hasher.GetHash(this.PasswordToHashPB.Password);
+            var cb = new TextCopy.Clipboard();
+            cb.SetText(hash);
+            this.HashCopiedPU.IsOpen = true;
         }
     }
 }

@@ -26,6 +26,16 @@
                     CanUserSortColumns="False"/>
             </TabItem>
         </TabControl>
-        <Button Grid.Row="1" x:Name="CloseBt" Content="Закрыть" Margin="3" Width="70" HorizontalAlignment="Right"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Label Content="Введите пароль:" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
+            <PasswordBox x:Name="PasswordToHashPB" Width="200" Margin="3"/>
+            <Button  x:Name="GenerateHashBt" Content="Сгенерировать хэш" Margin="3" Padding="5,0,5,0" HorizontalAlignment="Right" Click="GenerateHashBt_Click"/>
+        </StackPanel>
+        <Popup x:Name="HashCopiedPU" StaysOpen="False" Placement="Center"
+         AllowsTransparency="True" PopupAnimation="Fade">
+            <TextBlock TextWrapping="Wrap" Background="LightGreen" Opacity="0.8" >
+            Хэш скопирован в буфер обмена!
+            </TextBlock>
+        </Popup>
     </Grid>
 </Window>
