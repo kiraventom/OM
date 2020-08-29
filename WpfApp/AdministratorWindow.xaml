@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="AdministratorWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="{StaticResource AdministratorInterface}" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -13,13 +13,13 @@
         </Grid.RowDefinitions>
         
         <TabControl Grid.Row="0" x:Name="MainTC">
-            <TabItem Header="Редактирование методов">
+            <TabItem Header="{StaticResource MethodsEditing}">
                 <Label Content="Здесь будет расположено меню редактирования методов"/>
             </TabItem>
-            <TabItem Header="Редактирование примеров">
+            <TabItem Header="{StaticResource ExamplesEditing}">
                 <Label Content="Здесь будет расположено меню редактирования примеров"/>
             </TabItem>
-            <TabItem Header="Редактирование БД пользователей">
+            <TabItem Header="{StaticResource UsersDBEditing}">
                 <DataGrid 
                     x:Name="UsersDG"
                     CanUserReorderColumns="False" 
@@ -27,15 +27,13 @@
             </TabItem>
         </TabControl>
         <StackPanel Orientation="Horizontal" Grid.Row="1">
-            <Label Content="Введите пароль:" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
+            <Label Content="{StaticResource EnterPassword}" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
             <PasswordBox x:Name="PasswordToHashPB" Width="200" Margin="3"/>
-            <Button  x:Name="GenerateHashBt" Content="Сгенерировать хэш" Margin="3" Padding="5,0,5,0" HorizontalAlignment="Right" Click="GenerateHashBt_Click"/>
+            <Button  x:Name="GenerateHashBt" Content="{StaticResource GenerateHash}" Margin="3" Padding="5,0,5,0" HorizontalAlignment="Right" Click="GenerateHashBt_Click"/>
         </StackPanel>
         <Popup x:Name="HashCopiedPU" StaysOpen="False" Placement="Center"
          AllowsTransparency="True" PopupAnimation="Fade">
-            <TextBlock TextWrapping="Wrap" Background="LightGreen" Opacity="0.8" >
-            Хэш скопирован в буфер обмена!
-            </TextBlock>
+            <TextBlock TextWrapping="Wrap" Background="LightGreen" Opacity="0.8" Text="{StaticResource HashCopiedToClipboard}"/>
         </Popup>
     </Grid>
 </Window>

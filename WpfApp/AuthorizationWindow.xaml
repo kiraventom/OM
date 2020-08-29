@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="Авторизация" Height="185" Width="240" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="{StaticResource Authorization}" Height="185" Width="240" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
@@ -16,12 +16,12 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        
-        <Label Grid.Row="0" Content="Логин" Padding="0" Margin="5,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
+
+        <Label Grid.Row="0" Content="{StaticResource Login}" Padding="0" Margin="5,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
         <TextBox Grid.Row="1" x:Name="LoginTB" HorizontalAlignment="Stretch" Margin="5,0,5,0" VerticalContentAlignment="Center"/>
-        <Label Grid.Row="2" Content="Пароль" Padding="0" Margin="5,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
+        <Label Grid.Row="2" Content="{StaticResource Password}" Padding="0" Margin="5,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
         <PasswordBox Grid.Row="3" x:Name="PasswordTB" HorizontalAlignment="Stretch" Margin="5,0,5,0" VerticalContentAlignment="Center"/>
-        <Button Grid.Row="5" x:Name="LoginBt" Content="Войти" HorizontalAlignment="Left" Margin="5,0,5,0" Width="70" IsDefault="True" Click="LoginBt_Click"/>
+        <Button Grid.Row="5" x:Name="LoginBt" Content="{StaticResource Authorize}" HorizontalAlignment="Left" Margin="5,0,5,0" Width="70" IsDefault="True" Click="LoginBt_Click"/>
     </Grid>
 </Window>
  

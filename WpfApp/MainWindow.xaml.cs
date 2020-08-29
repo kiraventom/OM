@@ -27,7 +27,7 @@ namespace WpfApp
             {
                 AuthorizationDB.User.AccessLevel.User => new UserWindow(),
                 AuthorizationDB.User.AccessLevel.Admin => new AdministratorWindow(),
-                _ => throw new System.ArgumentOutOfRangeException(nameof(user.Level), user.Level, "Such user level is not allowed."),
+                _ => throw new System.ArgumentOutOfRangeException(nameof(user.Level), user.Level, Properties.Resources.UserLevelDoesNotExist),
             };
 
             window.ShowDialog();

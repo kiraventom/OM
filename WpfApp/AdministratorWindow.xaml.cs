@@ -54,7 +54,7 @@ namespace WpfApp
                 return;
             }
 
-            var dr = MessageBox.Show("Сохранить изменения?", "Подтверджение", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+            var dr = MessageBox.Show(Properties.Resources.SaveChangesQuestion, Properties.Resources.Confirmation, MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
             switch (dr)
             {
                 case MessageBoxResult.Yes:

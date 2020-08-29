@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="UserWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="{StaticResource UserInterface}" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -14,17 +14,34 @@
             <ColumnDefinition Width="1.5*"/>
         </Grid.ColumnDefinitions>
 
-        <GroupBox Grid.Column="0" Header="Метод решения" Margin="5, 0, 5, 0"/>
-        <GroupBox Grid.Column="1" Header="Пример" Margin="5, 0, 5, 0"/>
-        <GroupBox Grid.Column="2" Header="Параметры процесса" Margin="5, 0, 5, 0"/>
+        <GroupBox Grid.Column="0" Header="{StaticResource SolutionMethod}" Margin="5, 0, 5, 0"/>
+        <GroupBox Grid.Column="1" Header="{StaticResource Example}" Margin="5, 0, 5, 0"/>
+        <GroupBox Grid.Column="2" Header="{StaticResource ProcessParameters}" Margin="5, 0, 5, 0"/>
         <Grid Grid.Column="3" Margin="5, 0, 5, 0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="12*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="2*"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             
             <Button Grid.Row="0" Content="ГРАФИК" FontSize="30"/>
-            <Button Grid.Row="1" Content="Рассчитать" Margin="0,5,0,5"/>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Content="{StaticResource TemperatureT1}" VerticalAlignment="Center"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="{StaticResource TemperatureT2}" VerticalAlignment="Center"/>
+                <TextBox x:Name="Temperature1TB" Grid.Row="0" Grid.Column="1" Margin="0,5,0,5" IsReadOnly="True"/>
+                <TextBox x:Name="Temperature2TB" Grid.Row="1" Grid.Column="1" Margin="0,5,0,5" IsReadOnly="True"/>
+            </Grid>
+            <Button Grid.Row="2" x:Name="CalculateBt" Content="{StaticResource Calculate}" Margin="0,5,0,5" Click="CalculateBt_Click"/>
         </Grid>
     </Grid>
 </Window>

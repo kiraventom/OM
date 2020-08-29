@@ -1,0 +1,29 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WpfApp" 
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <!--AdministratorWindow-->
+    <system:String x:Key="AdministratorInterface">Интерфейс администратора</system:String>
+    <system:String x:Key="GenerateHash">Сгенерировать хэш</system:String>
+    <system:String x:Key="EnterPassword">Введите пароль:</system:String>
+    <system:String x:Key="MethodsEditing">Редактирование методов</system:String>
+    <system:String x:Key="ExamplesEditing">Редактирование примеров</system:String>
+    <system:String x:Key="UsersDBEditing">Редактирование БД пользователей</system:String>
+    <system:String x:Key="HashCopiedToClipboard">Хэш скопирован в буфер обмена!</system:String>
+
+    <!--UserWindow-->
+    <system:String x:Key="UserInterface">Интерфейс пользователя</system:String>
+    <system:String x:Key="SolutionMethod">Метод решения</system:String>
+    <system:String x:Key="Example">Пример</system:String>
+    <system:String x:Key="ProcessParameters">Параметры процесса</system:String>
+    <system:String x:Key="Calculate">Рассчитать</system:String>
+    <system:String x:Key="TemperatureT1">Температура T1, °С</system:String>
+    <system:String x:Key="TemperatureT2">Температура T2, °С</system:String>
+    
+    <!--AuthorizationWindow-->
+    <system:String x:Key="Authorization">Авторизация</system:String>
+    <system:String x:Key="Login">Логин</system:String>
+    <system:String x:Key="Password">Пароль</system:String>
+    <system:String x:Key="Authorize">Войти</system:String>
+    
+</ResourceDictionary>

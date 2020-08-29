@@ -29,7 +29,7 @@ namespace WpfApp
             }
             else
             {
-                MessageBox.Show("Неверный логин или пароль!");
+                MessageBox.Show(Properties.Resources.WrongLoginOrPassword);
             }
         }
     }
