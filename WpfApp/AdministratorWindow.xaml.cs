@@ -17,8 +17,6 @@ namespace WpfApp
         {
             InitializeComponent();
             this._context = new AuthorizationContext();
-            _context.Users.Load();
-            DbAtLaunch = _context.Users.Local.ToList(); // Save state of DB at launch to compare at closing
             this.Loaded += this.AdministratorWindow_Loaded;
             this.UsersDG.AutoGeneratingColumn += this.UsersDG_AutoGeneratingColumn;
             this.Closing += this.AdministratorWindow_Closing;
@@ -30,12 +28,13 @@ namespace WpfApp
         }
 
         private readonly AuthorizationContext _context;
-        private readonly List<User> DbAtLaunch;
+        private List<User> DbAtLaunch;
 
 
         private void AdministratorWindow_Loaded(object sender, RoutedEventArgs e)
         {
             _context.Users.Load();
+            DbAtLaunch = _context.Users.Local.ToList(); // Save state of DB at launch to compare at closing
             UsersDG.ItemsSource = _context.Users.Local.ToObservableCollection();
         }
 
