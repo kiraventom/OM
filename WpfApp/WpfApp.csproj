@@ -8,10 +8,14 @@
 
   <ItemGroup>
     <None Remove="authorization.db" />
+    <None Remove="samples.db" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="authorization.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="samples.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -21,6 +25,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="OxyPlot.Core" Version="2.0.0" />
+    <PackageReference Include="OxyPlot.Wpf" Version="2.0.0" />
     <PackageReference Include="System.ComponentModel.Primitives" Version="4.3.0" />
     <PackageReference Include="TextCopy" Version="4.2.0" />
   </ItemGroup>
@@ -29,6 +35,7 @@
     <ProjectReference Include="..\AuthorizationDB\AuthorizationDB.csproj" />
     <ProjectReference Include="..\Authorization\Authorization.csproj" />
     <ProjectReference Include="..\MathModel\MathModel.csproj" />
+    <ProjectReference Include="..\SamplesDB\SamplesDB.csproj" />
   </ItemGroup>
 
   <ItemGroup>

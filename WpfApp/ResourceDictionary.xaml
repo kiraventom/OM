@@ -7,7 +7,7 @@
     <system:String x:Key="GenerateHash">Сгенерировать хэш</system:String>
     <system:String x:Key="EnterPassword">Введите пароль:</system:String>
     <system:String x:Key="MethodsEditing">Редактирование методов</system:String>
-    <system:String x:Key="ExamplesEditing">Редактирование примеров</system:String>
+    <system:String x:Key="SamplesEditing">Редактирование примеров</system:String>
     <system:String x:Key="UsersDBEditing">Редактирование БД пользователей</system:String>
     <system:String x:Key="HashCopiedToClipboard">Хэш скопирован в буфер обмена!</system:String>
 
@@ -19,6 +19,7 @@
     <system:String x:Key="Calculate">Рассчитать</system:String>
     <system:String x:Key="TemperatureT1">Температура T1, °С</system:String>
     <system:String x:Key="TemperatureT2">Температура T2, °С</system:String>
+    <system:String x:Key="Profit">Прибыль от реализации</system:String>
     
     <!--AuthorizationWindow-->
     <system:String x:Key="Authorization">Авторизация</system:String>

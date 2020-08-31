@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathModel", "MathModel\Math
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthorizationDB", "AuthorizationDB\AuthorizationDB.csproj", "{62DFED7B-EC20-42C4-B393-1E12AC73B373}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization", "Authorization\Authorization.csproj", "{2DD2CB77-C6A9-4FCF-93BA-3F9473C63577}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authorization", "Authorization\Authorization.csproj", "{2DD2CB77-C6A9-4FCF-93BA-3F9473C63577}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamplesDB", "SamplesDB\SamplesDB.csproj", "{2AB1BC11-E180-4611-A036-E907C7A34593}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{2DD2CB77-C6A9-4FCF-93BA-3F9473C63577}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DD2CB77-C6A9-4FCF-93BA-3F9473C63577}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DD2CB77-C6A9-4FCF-93BA-3F9473C63577}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AB1BC11-E180-4611-A036-E907C7A34593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AB1BC11-E180-4611-A036-E907C7A34593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AB1BC11-E180-4611-A036-E907C7A34593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AB1BC11-E180-4611-A036-E907C7A34593}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

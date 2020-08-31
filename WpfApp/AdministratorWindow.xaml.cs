@@ -1,5 +1,6 @@
 ﻿using AuthorizationDB;
 using Microsoft.EntityFrameworkCore;
+using SamplesDB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,29 +17,38 @@ namespace WpfApp
         public AdministratorWindow()
         {
             InitializeComponent();
-            this._context = new AuthorizationContext();
+            this._usersContext = new AuthorizationContext();
+            this._samplesContext = new SamplesContext();
             this.Loaded += this.AdministratorWindow_Loaded;
-            this.UsersDG.AutoGeneratingColumn += this.UsersDG_AutoGeneratingColumn;
+            this.UsersDG.AutoGeneratingColumn += this.DataGrid_AutoGeneratingColumn;
+            this.SamplesDG.AutoGeneratingColumn += this.DataGrid_AutoGeneratingColumn;
             this.Closing += this.AdministratorWindow_Closing;
         }
 
         ~AdministratorWindow()
         {
-            this._context.Dispose();
+            this._usersContext.Dispose();
+            this._samplesContext.Dispose();
         }
 
-        private readonly AuthorizationContext _context;
-        private List<User> DbAtLaunch;
+        private readonly AuthorizationContext _usersContext;
+        private readonly SamplesContext _samplesContext;
+        private List<User> UsersDbAtLaunch;
+        private List<Sample> SamplesDbAtLaunch;
 
 
         private void AdministratorWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            _context.Users.Load();
-            DbAtLaunch = _context.Users.Local.ToList(); // Save state of DB at launch to compare at closing
-            UsersDG.ItemsSource = _context.Users.Local.ToObservableCollection();
+            _usersContext.Users.Load();
+            UsersDbAtLaunch = _usersContext.Users.Local.ToList(); // Save state of DB at launch to compare at closing
+            UsersDG.ItemsSource = _usersContext.Users.Local.ToObservableCollection();
+
+            _samplesContext.Samples.Load();
+            SamplesDbAtLaunch = _samplesContext.Samples.Local.ToList(); // Save state of DB at launch to compare at closing
+            SamplesDG.ItemsSource = _samplesContext.Samples.Local.ToObservableCollection();
         }
 
-        private void UsersDG_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        private void DataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             if (e.Column.Header.ToString().Equals("id", StringComparison.OrdinalIgnoreCase))
             {
@@ -48,7 +58,9 @@ namespace WpfApp
 
         private void AdministratorWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            bool dbChanged = !DbAtLaunch.SequenceEqual(UsersDG.ItemsSource.OfType<User>());
+            bool dbChanged = 
+                !UsersDbAtLaunch.SequenceEqual(UsersDG.ItemsSource.OfType<User>()) ||
+                !SamplesDbAtLaunch.SequenceEqual(SamplesDG.ItemsSource.OfType<Sample>());
             if (!dbChanged)
             {
                 return;
@@ -58,7 +70,8 @@ namespace WpfApp
             switch (dr)
             {
                 case MessageBoxResult.Yes:
-                    _context.SaveChanges();
+                    _usersContext.SaveChanges();
+                    _samplesContext.SaveChanges();
                     break;
                 case MessageBoxResult.No:
                     break;

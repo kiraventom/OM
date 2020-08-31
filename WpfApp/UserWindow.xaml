@@ -19,7 +19,7 @@
         <GroupBox Grid.Column="2" Header="{StaticResource ProcessParameters}" Margin="5, 0, 5, 0"/>
         <Grid Grid.Column="3" Margin="5, 0, 5, 0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="9*"/>
+                <RowDefinition Height="8*"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
@@ -27,19 +27,22 @@
             <Button Grid.Row="0" Content="ГРАФИК" FontSize="30"/>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
 
                 <Label Grid.Row="0" Grid.Column="0" Content="{StaticResource TemperatureT1}" VerticalAlignment="Center"/>
                 <Label Grid.Row="1" Grid.Column="0" Content="{StaticResource TemperatureT2}" VerticalAlignment="Center"/>
-                <TextBox x:Name="Temperature1TB" Grid.Row="0" Grid.Column="1" Margin="0,5,0,5" IsReadOnly="True"/>
-                <TextBox x:Name="Temperature2TB" Grid.Row="1" Grid.Column="1" Margin="0,5,0,5" IsReadOnly="True"/>
+                <Label Grid.Row="2" Grid.Column="0" Content="{StaticResource Profit}" VerticalAlignment="Center"/>
+                <TextBox x:Name="Temperature1TB" Grid.Row="0" Grid.Column="1" Margin="0,3,0,3" IsReadOnly="True" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="Temperature2TB" Grid.Row="1" Grid.Column="1" Margin="0,3,0,3" IsReadOnly="True" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="ProfitTB" Grid.Row="2" Grid.Column="1" Margin="0,3,0,3" IsReadOnly="True" VerticalContentAlignment="Center"/>
             </Grid>
             <Button Grid.Row="2" x:Name="CalculateBt" Content="{StaticResource Calculate}" Margin="0,5,0,5" Click="CalculateBt_Click"/>
         </Grid>
