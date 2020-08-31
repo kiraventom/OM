@@ -23,6 +23,7 @@ namespace WpfApp
             this.UsersDG.AutoGeneratingColumn += this.DataGrid_AutoGeneratingColumn;
             this.SamplesDG.AutoGeneratingColumn += this.DataGrid_AutoGeneratingColumn;
             this.Closing += this.AdministratorWindow_Closing;
+            this.GenerateHashBt.Click += this.GenerateHashBt_Click;
         }
 
         ~AdministratorWindow()

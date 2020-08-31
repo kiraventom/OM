@@ -14,7 +14,7 @@
     <!--UserWindow-->
     <system:String x:Key="UserInterface">Интерфейс пользователя</system:String>
     <system:String x:Key="SolutionMethod">Метод решения</system:String>
-    <system:String x:Key="Example">Пример</system:String>
+    <system:String x:Key="Sample">Пример</system:String>
     <system:String x:Key="ProcessParameters">Параметры процесса</system:String>
     <system:String x:Key="Calculate">Рассчитать</system:String>
     <system:String x:Key="TemperatureT1">Температура T1, °С</system:String>

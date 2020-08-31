@@ -12,7 +12,7 @@ namespace MathModel
 
     public static class Solver // TODO: Move all constants to fields and assign them in contructor
     {
-        public static Solution Solve()
+        public static Solution Solve(double G, double A, int N)
         {
             const double T1Min = -18; 
             const double T1Max = 7; 
@@ -22,11 +22,19 @@ namespace MathModel
             var condition = new Func<double, double, bool>((t1, t2) => t1 + t2 <= 4);
             const double multiplier = 10;
 
-            var (T1, T2, MaxS, SValues) = GetRawSolution(T1Min, T1Max, T2Min, T2Max, precision, condition);
+            var (T1, T2, MaxS, SValues) = GetRawSolution(T1Min, T1Max, T2Min, T2Max, precision, condition, G, A, N);
             return new Solution(T1, T2, MaxS * multiplier, SValues.Select(s => s * multiplier));
         }
 
-        private static (double T1, double T2, double MaxS, IEnumerable<double> SValues) GetRawSolution(double T1Min, double T1Max, double T2Min, double T2Max, double precision, Func<double, double, bool> condition)
+        private static (double T1, double T2, double MaxS, IEnumerable<double> SValues) GetRawSolution(double T1Min,
+                                                                                                       double T1Max,
+                                                                                                       double T2Min,
+                                                                                                       double T2Max,
+                                                                                                       double precision,
+                                                                                                       Func<double, double, bool> condition,
+                                                                                                       double G,
+                                                                                                       double A,
+                                                                                                       int N)
         {
             double maxS = double.MinValue;
             double bestT1 = -1, bestT2 = -1;
@@ -37,7 +45,7 @@ namespace MathModel
                 {
                     if (condition.Invoke(t1, t2))
                     {
-                        var calculatedS = CalculateS(t1, t2);
+                        var calculatedS = CalculateS(t1, t2, G, A, N);
                         sValues.Add(calculatedS);
                         if (maxS < calculatedS)
                         {
@@ -51,15 +59,12 @@ namespace MathModel
             return (bestT1, bestT2, maxS, sValues);
         }
 
-        private static double CalculateS(double T1, double T2)
+        private static double CalculateS(double T1, double T2, double G, double A, int N)
         {
             double alpha = 1;
             double beta = 1;
             double eta = 1;
             double delta = 1;
-            double G = 1;
-            double A = 1;
-            double N = 2;
             double S = alpha * G * (Math.Pow((T2 - beta * A), N) + eta * Math.Pow(Math.Exp(T1 + T2), N) + delta * (T2 - T1));
             return S;
         }

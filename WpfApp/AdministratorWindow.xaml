@@ -33,7 +33,7 @@
                     <StackPanel Orientation="Horizontal" Grid.Row="1">
                         <Label Content="{StaticResource EnterPassword}" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
                         <PasswordBox x:Name="PasswordToHashPB" Width="200" Margin="3"/>
-                        <Button  x:Name="GenerateHashBt" Content="{StaticResource GenerateHash}" Margin="3" Padding="5,0,5,0" HorizontalAlignment="Right" Click="GenerateHashBt_Click"/>
+                        <Button  x:Name="GenerateHashBt" Content="{StaticResource GenerateHash}" Margin="3" Padding="5,0,5,0" HorizontalAlignment="Right"/>
                     </StackPanel>
                 </Grid>
             </TabItem>

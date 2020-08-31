@@ -8,9 +8,10 @@ namespace WpfApp
         public MainWindow()
         {
             InitializeComponent();
+            this.Loaded += this.MainWindow_Loaded;
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             this.Hide();
             var authorizer = new Authorizer();

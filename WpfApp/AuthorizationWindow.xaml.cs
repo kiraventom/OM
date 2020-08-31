@@ -13,6 +13,7 @@ namespace WpfApp
         {
             InitializeComponent();
             this._authorizer = authorizer;
+            this.LoginBt.Click += LoginBt_Click;
         }
 
         private readonly Authorizer _authorizer;
